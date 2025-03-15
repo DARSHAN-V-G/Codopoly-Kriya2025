@@ -86,6 +86,7 @@ app.get("/logs", (req, res) => {
 
         // Combine both logs, reverse for latest first
         const combinedLogs = (activityData + "\n" + errorData).split("\n").reverse();
+        res.setHeader("Access-Control-Allow-Origin", "*"); 
         res.json({ logs: combinedLogs });
       });
     });
